@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -11,78 +10,66 @@
 </head>
 
 <body class="body">
-    
-   <div class="myContainer">
-        <h1>BMI Calculator</h1>       
+    <div class="myContainer">
+        <h1>BMI Calculator</h1>
         <form id="calculate">
-
-        <div id="metric-inputs">
-            <input type="text" id="weight-in-kgs" placeholder="Kg">
-            <input type="text" id="height-in-cm" placeholder="Cm">
-        </div>
-
-        <div id="imperial-inputs">
+            <div id="metric-inputs">
+                <input type="text" id="weight-in-kgs" placeholder="Kg">
+                <input type="text" id="height-in-cm" placeholder="Cm">
+            </div>
+            <div id="imperial-inputs">
                 <input type="text" id="weight-in-lbs" placeholder="Lbs">
                 <input type="text" id="height-in-in" placeholder="In">
-        </div>
-
-              
-            <div> 
-                <select  id="my_select">
-                    <option value="metric">Metric System</option>
-                    <option value="imperial">Imperial System</option>
-                </select>
             </div>
-        
-
-        <button type="submit" value="Calculate"> Calculate </button>
+            <select id="my_select">
+                <option value="metric">Metric System</option>
+                <option value="imperial">Imperial System</option>
+            </select>
+            <button type="submit" value="Calculate"> Calculate </button>
         </form>
-         <div>
-        <span class="result" id="display_value"></span>
-        <span class="result" id="display_message"></span>
+        <div>
+            <span class="result" id="display_value"></span>
+            <span class="result" id="display_message"></span>
         </div>
     </div>
-       
-    <script type="text/javascript"> 
 
+    <script type="text/javascript"> 
         const global = {}
-        
+
         global.calculateForm = document.querySelector('#calculate');
         global.displayValueElement = document.querySelector('#display_value');
         global.displayMessageElement = document.querySelector('#display_message');
         global.methodSelector = document.querySelector('#my_select');
 
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             global.calculateForm.addEventListener('submit', event => {
-                            
+
                 event.preventDefault();
-                           
+
                 calculateBMI()
                     .then(person => {
                         global.displayValueElement.innerHTML = `Your BMI is ${person.bmiValue}`;
                         global.displayMessageElement.innerHTML = `and you are ${person.bmiMessage}`;
-                  })
+                    })
             })
         });
 
         const calculateBMI = () => {
-            let method = global.methodSelector.options[global.methodSelector.selectedIndex].value 
+            let method = global.methodSelector.options[global.methodSelector.selectedIndex].value
             return new Promise(resolve => {
-                let weightFormat = method === 'metric' ? 'weight-in-kgs': 'weight-in-lbs'
-                let heightFormat = method === 'metric' ? 'height-in-cm': 'height-in-in'
+                let weightFormat = method === 'metric' ? 'weight-in-kgs' : 'weight-in-lbs'
+                let heightFormat = method === 'metric' ? 'height-in-cm' : 'height-in-in'
                 let w = parseFloat(document.getElementById(weightFormat).value);
                 let h = parseFloat(document.getElementById(heightFormat).value);
                 let person = new Person({
                     weight: w,
                     height: h,
                 });
-                method === 'metric' ? person.calculate_bmi() : person.calculate_imperial_bmi();
+                method === 'metric' ? person.calculate_metric_bmi() : person.calculate_imperial_bmi();
                 resolve(person);
             })
         };
-</script>
-        
+    </script>
 </body>
-
 </html>
