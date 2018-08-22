@@ -1,6 +1,7 @@
-const fs = require('fs');
-const chai = require('chai');
+const fs = require('fs'); 
+const chai = require('chai'); 
 global.expect = chai.expect;
 
-let person = fs.readFileSync('./src/js/person.js');
-eval( person + `\nexports.Person = Person;`)
+let calc = fs.readFileSync('./src/js./calculator.js'); 
+let person = fs.readFileSync('./src/js./person.js'); 
+eval(calc + person + `\nexports.Person = Person;\nexports.BMICalculator = BMICalculator;`) 
