@@ -25,7 +25,7 @@
 
         <div class='form-group row'>
             <div class="col-auto">
-                <select class='form-control' id "my_select">
+                <select class='form-control' id="my_select">
                     <option value="metric">Metric System</option>
                     <option value="imperial">Imperial System</option>
                 </select>
@@ -58,7 +58,7 @@
                     .then(person => {
                         global.displayValueElement.innerHTML = `Your BMI is ${person.bmiValue}`;
                         global.displayMessageElement.innerHTML = `and you are ${person.bmiMessage}`;
-                    })
+                  })
             })
         });
 
