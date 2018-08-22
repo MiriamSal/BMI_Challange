@@ -5,40 +5,44 @@
 <head>
     <meta charset="utf-8">
     <title>BMI Calculator</title>
-    <link href="style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="js./person.js"></script>
     <script src="js./calculator.js"></script>
 </head>
 
 <body class="body">
     
-    <form id="calculate">
+   <div class="myContainer">
+        <h1>BMI Calculator</h1>       
+        <form id="calculate">
+
         <div id="metric-inputs">
-            <input type="text" id="weight-in-kgs" placeholder="Weight">
-            <input type="text" id="height-in-cm" placeholder="Height">
+            <input type="text" id="weight-in-kgs" placeholder="Kg">
+            <input type="text" id="height-in-cm" placeholder="Cm">
         </div>
 
         <div id="imperial-inputs">
-                <input type="text" id="weight-in-lbs" placeholder="Weight">
-                <input type="text" id="height-in-in" placeholder="Height">
+                <input type="text" id="weight-in-lbs" placeholder="Lbs">
+                <input type="text" id="height-in-in" placeholder="In">
         </div>
 
-        <div class='form-group row'>
-            <div class="col-auto">
-                <select class='form-control' id="my_select">
+              
+            <div> 
+                <select  id="my_select">
                     <option value="metric">Metric System</option>
                     <option value="imperial">Imperial System</option>
                 </select>
             </div>
-        </div> 
+        
 
         <button type="submit" value="Calculate"> Calculate </button>
-    </form>
-    <div>
-        <span id="display_value"></span>
-        <span id="display_message"></span>
+        </form>
+         <div>
+        <span class="result" id="display_value"></span>
+        <span class="result" id="display_message"></span>
+        </div>
     </div>
-
+       
     <script type="text/javascript"> 
 
         const global = {}
@@ -78,7 +82,7 @@
             })
         };
 </script>
-
+        
 </body>
 
 </html>
