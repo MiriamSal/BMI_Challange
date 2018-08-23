@@ -8,14 +8,17 @@ h1 {
 }
 
 .myContainer{
-
+    
+    background-color: rgb(11, 84, 87);
     width: 300px;
+    height: 200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.result{
 
-    color: #00e6ac;
+.result{
+    
+    color: whitesmoke;
 }

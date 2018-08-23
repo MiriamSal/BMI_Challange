@@ -13,6 +13,10 @@
     <div class="myContainer">
         <h1>BMI Calculator</h1>
         <form id="calculate">
+             <select id="my_select">
+                <option value="metric">Metric System</option>
+                   <option value="imperial">Imperial System</option>
+            </select>
             <div id="metric-inputs">
                 <input type="text" id="weight-in-kgs" placeholder="Kg">
                 <input type="text" id="height-in-cm" placeholder="Cm">
@@ -21,10 +25,7 @@
                 <input type="text" id="weight-in-lbs" placeholder="Lbs">
                 <input type="text" id="height-in-in" placeholder="In">
             </div>
-            <select id="my_select">
-                <option value="metric">Metric System</option>
-                <option value="imperial">Imperial System</option>
-            </select>
+
             <button type="submit" value="Calculate"> Calculate </button>
         </form>
         <div>
